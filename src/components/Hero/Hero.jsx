@@ -27,7 +27,7 @@ const Hero = () => {
             </h5>
           </div>
           <p className={classes.desc}>
-            From villas in Italy to apartments in Norway, we have got you covered
+            From villas in Malindi to apartments in Diani, we have got you covered
             <br />
             Getting an estate has never been smoother
           </p>

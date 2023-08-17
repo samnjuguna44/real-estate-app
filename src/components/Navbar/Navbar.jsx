@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import classes from "./navbar.module.css";
 import Link from "next/link";
-import listModal from "../listModal/listModal";
+import ListModal from "../listModal/ListModal";
 import { signIn, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
@@ -43,7 +43,7 @@ const Navbar = () => {
                 List
               </span>
               {showListModal && (
-                <listModal handleHideListModal={handleHideListModal} />
+                <ListModal handleHideListModal={handleHideListModal} />
               )}
             </>
           ) : (
