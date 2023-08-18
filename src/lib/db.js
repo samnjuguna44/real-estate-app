@@ -1,4 +1,4 @@
-import moongoose from "moongoose";
+import mongoose from "mongoose";
 
 const connection = {};
 

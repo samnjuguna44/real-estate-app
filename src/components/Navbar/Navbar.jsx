@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const page = usePathname();
-  const isLoggedIn = false;
+  const { data: session } = useSession();
   const [showListModal, setShowListModal] = useState(false);
 
   if (page.includes("login") || page.includes("register")) return null;
@@ -29,10 +29,10 @@ const Navbar = () => {
           <h2>Samson Villas</h2>
         </Link>
         <div className={classes.right}>
-          {isLoggedIn != false ? (
+          {session?.user?.email != null ? (
             //if the user is logged in
             <>
-              <span className={classes.username}>Samson Villas</span>
+              <span className={classes.username}>{session?.user?.email}</span>
               <button onClick={() => signOut()} className={classes.logoutBtn}>
                 Logout
               </button>
