@@ -17,7 +17,7 @@ const Properties = ({ properties }) => {
             properties.map((property) => (
               <PropertyCard
                 // TODO: IN OUR DB THE ID GOING TO BE _ID
-                key={property.id}
+                key={property._id}
                 property={property}
               />
             ))

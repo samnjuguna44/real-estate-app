@@ -108,3 +108,9 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+.phoneNumber {
+  color: var(--primary-orange);
+  font-size: 22px;
+  font-weight: bold;
+}

@@ -7,7 +7,7 @@ const PropertyCard = ({ property }) => {
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
-        <Link href={`/details/${property.id}`} className={classes.imageContainer}>
+        <Link href={`/details/${property._id}`} className={classes.imageContainer}>
           <Image src={property?.img} width="350" height="300" alt="house" />
           <span className={classes.propertyCategory}>{property?.type}</span>
           <div className={classes.propertyData}>

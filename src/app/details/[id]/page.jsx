@@ -14,24 +14,48 @@ import { propertiesData } from "@/components/Properties/PropertiesData";
 const Details = (ctx) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [property, setProperty] = useState("");
+  const { data: session } = useSession();
   const router = useRouter();
   const id = ctx.params.id;
   const isOwner = true;
 
   useEffect(() => {
-    const fetchProperty = () => {
-      const property = propertiesData.find(
-        (p) => p.id.toString() === id.toString()
-      );
-      setProperty(property);
-    };
-    fetchProperty();
-  }, []);
+    async function fetchProperty() {
+      const res = await fetch(`http://localhost:3000/api/property/${id}`, {
+        headers: {
+          Authorization: `Bearer ${session?.user?.accessToken}`,
+        },
+        method: "GET",
+      });
+
+      const data = await res.json();
+
+      setProperty(data);
+    }
+    session && fetchProperty();
+  }, [session]);
 
   const handleOpenEditModal = () => setShowEditModal((prev) => true);
   const handleHideEditModal = () => setShowEditModal((prev) => false);
 
-  const handleDelete = () => {};
+  const handleDelete = async () => {
+    try {
+      const res = await fetch(`http://localhost:3000/api/property/${id}`, {
+        headers: {
+          Authorization: `Bearer ${session?.user?.accessToken}`,
+        },
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        router.push("/");
+      } else {
+        throw new Error("Couldn't delete the property");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className={classes.container}>
@@ -43,7 +67,7 @@ const Details = (ctx) => {
         <div className={classes.propertyData}>
           <div className={classes.propertySection}>
             <h2 className={classes.title}>{property?.title}</h2>
-            {isOwner && (
+            {isOwner == false ? (
               <div className={classes.controls}>
                 <button onClick={handleOpenEditModal}>
                   <BsFillPencilFill />
@@ -52,6 +76,8 @@ const Details = (ctx) => {
                   <BsFillTrashFill />
                 </button>
               </div>
+            ) : (
+              <span className={classes.phoneNumber}>{property?.phoneNumber}</span>
             )}
           </div>
           <div className={classes.propertySection}>

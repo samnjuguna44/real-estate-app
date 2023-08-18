@@ -49,7 +49,8 @@ const PropertySchema = new mongoose.Schema(
     },
     phoneNumber: {
       type: Number,
-      min: 8
+      min: 8,
+      required: true,
     }
   },
   { timestamps: true }
