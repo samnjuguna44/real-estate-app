@@ -3,7 +3,7 @@
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.65);
-  background-image: url("../../assets/estate2.jpg");
+  background-image: url("../../assets/estate1.jpg");
   background-size: cover;
   background-blend-mode: darken;
   display: flex;
@@ -12,26 +12,26 @@
 }
 
 .wrapper {
-  height: 62.5%;
-  width: 22.5%;
+  height: 55%;
+  width: 17.5%;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 16px;
+  border-radius: 12px;
 }
 
 .wrapper > h2 {
-  margin-bottom: 3.75rem;
+  margin-bottom: 2.5rem;
   color: var(--primary-orange);
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .wrapper > form {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.75rem;
 }
 
 .wrapper .inputWrapper {
@@ -62,10 +62,10 @@
   font-size: 12px;
 }
 
-.registerBtn {
+.loginBtn {
   width: 80%;
   margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 2rem;
   padding: 0.5rem 0.75rem;
   border: none;
   outline: none;

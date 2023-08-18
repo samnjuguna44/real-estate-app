@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import classes from "./navbar.module.css";
 import Link from "next/link";
 import ListModal from "../listModal/ListModal";
-import { signIn, signOut } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
@@ -33,13 +33,10 @@ const Navbar = () => {
             //if the user is logged in
             <>
               <span className={classes.username}>Samson Villas</span>
-              <button onClick={() => signOut} className={classes.logoutBtn}>
+              <button onClick={() => signOut()} className={classes.logoutBtn}>
                 Logout
               </button>
-              <span
-                onClick={() => handleShowListModal}
-                className={classes.list}
-              >
+              <span onClick={handleShowListModal} className={classes.list}>
                 List
               </span>
               {showListModal && (
@@ -49,7 +46,7 @@ const Navbar = () => {
           ) : (
             <>
               <span>Hello guest!</span>
-              <button onClick={() => signIn} className={classes.login}>
+              <button onClick={() => signIn()} className={classes.login}>
                 Log in
               </button>
               <Link className={classes.register} href="/register">

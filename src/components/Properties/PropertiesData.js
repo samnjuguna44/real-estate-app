@@ -13,6 +13,7 @@ const propertiesData = [
     beds: 2,
     country: "Kenya",
     type: "Party Villa",
+    price: 5000
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const propertiesData = [
     beds: 2,
     country: "Kenya",
     type: "Party Villa",
+    price: 5000
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ const propertiesData = [
     beds: 2,
     country: "Kenya",
     type: "Party Villa",
+    price: 5000
   },
   {
     id: 4,
@@ -46,6 +49,7 @@ const propertiesData = [
     beds: 2,
     country: "Kenya",
     type: "Party Villa",
+    price: 5000
   },
 ];
 
